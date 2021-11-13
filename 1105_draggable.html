@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rudia Lee.com</title>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      cursor: url("./홈페이지용 아이콘/1003-homepage-icon_cursor_60.png"), auto;
+    }
+
+    .Container {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background: #f5f3ef;
+    }
+
+    .About-me {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      scale: 0.3;
+      cursor: url("./홈페이지용 아이콘/1003-homepage-icon_cursor_60.png"), auto;
+    }
+
+    .About-me:hover {
+      transform: rotate(3600deg);
+      transition: 100s;
+      cursor: url("./홈페이지용 아이콘/1003-homepage-icon_cursor_60_2.png"), auto;
+    }
+
+    /* #menubar {
+      width: 120px;
+      text-align: center;
+      padding: 1em;
+      margin: 0 auto;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+    } */
+  </style>
+</head>
+
+<body>
+
+  <a href="https://www.google.co.kr/?gws_rd=ssl" class="About-me" draggable="true" ondrag="drag_handler(event);"><img
+      src="/홈페이지용 아이콘/211007-icons-for-webpage_aboutme.png"></a>
+
+  <div class="Container" ondragover="dragover_handler(event);" ondrop="drop_handler(event);"></div>
+
+
+
+  <script>
+    function drag_handler(event) {
+      //  ondrag =  드래그할때 동작 
+      console.log("Drag");
+    }
+    function dragover_handler(event) {
+      //ondragover = draggable 엘리먼트가 drop영역위에 올라가면 
+      console.log("dragOver");
+      event.preventDefault();
+    }
+    function drop_handler(event) {
+      //ondrop = draggable 엘리먼트를 drop영역위에 떨어트리면
+      console.log("droooop!");
+      document.getElementsByClassName("About-me")[0].style.top = event.layerY + "px";
+      document.getElementsByClassName("About-me")[0].style.left = event.layerX + "px";
+      // document.getElementsByClassName("About-me")[0].style.bottom = event.layerY + "px";
+      // document.getElementsByClassName("About-me")[0].style.right = event.layerX + "px";
+      event.preventDefault();
+    }
+  </script>
+
+</body>
+
+</html>
